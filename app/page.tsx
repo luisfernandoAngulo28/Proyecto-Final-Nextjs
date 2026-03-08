@@ -2,6 +2,7 @@
 import Button from "@/components/Button";
 import ProductCard from "@/components/ProductCard";
 import { products as initialProducts } from "@/data/products";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Home() {
@@ -36,6 +37,12 @@ export default function Home() {
       <Button onclick={() => alert("¡Gracias por visitar nuestra tienda!")}>
         Contactar Soporte
       </Button>
+
+      <div>
+        <Link href="/about" className="text-blue-500 mt-6 inline-block">
+          Ir a About
+        </Link>
+      </div>
     </main>
   );
 }
