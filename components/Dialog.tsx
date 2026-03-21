@@ -34,9 +34,9 @@ export default function Dialog({
       <DialogPrimitive.Trigger asChild>{trigger}</DialogPrimitive.Trigger>
 
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 bg-black/40  backdrop-blur-sm" />
+        <DialogPrimitive.Overlay className="fixed inset-0 z-60 bg-black/40 backdrop-blur-sm" />
         <DialogPrimitive.Content
-          className={`fixed bg-white p-6 rounded-xl shadow-xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${sizes[size]}`}
+          className={`fixed z-61 bg-white p-6 rounded-xl shadow-xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${sizes[size]}`}
         >
           {image && (
             <div className="mb-4 overflow-hidden rounded">
