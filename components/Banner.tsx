@@ -1,31 +1,29 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export default function Banner() {
   return (
-    <section className="bg-linear-to-r from-blue-600 to-purple-500 text-white">
-      <div className="max-w-6xl mx-auto px-6 py-20 flex fle-row gap-10 items-center">
+    <section className="relative overflow-hidden bg-[#0a0a0b] py-20">
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-transparent z-0" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col md:flex-row gap-12 items-center">
         <div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Encuentra los mejores productos
+          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-[0.9] tracking-tighter text-white">
+            EXPLORA LAS <br/> <span className="text-blue-600">MEJORES SERIES</span>
           </h1>
-          <p className="text-lg text-blue-100 mb-8">
-            Descubre nuestra colección de productos con los mejores precios y la
-            mejor claidad
+          <p className="text-xl text-gray-400 mb-10 max-w-lg leading-relaxed">
+            Descubre nuestra colección curada de series con la mejor calidad y
+            disfruta de historias que te atraparán.
           </p>
           <Link
-            href="/products"
-            className="bg-white text-blue-600 hover:bg-gray-200 font-bold py-3 px-6 rounded-lg transition"
+            href="/series"
+            className="bg-blue-600 text-white hover:bg-blue-700 font-bold py-4 px-8 rounded-full transition-all duration-300 shadow-xl shadow-blue-600/20 inline-block"
           >
-            Ver Productos
+            Ver Catálogo
           </Link>
         </div>
         <div>
-          <Image
-            src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png"
-            alt="Producto"
-            width={500}
-            height={300}
+          <img
+            src="/banner.png"
+            alt="NextFLIX Banner"
             className="w-full h-auto rounded-lg shadow-lg"
           />
         </div>

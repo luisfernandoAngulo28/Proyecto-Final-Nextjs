@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://nestflix.onrender.com";
 
 export async function apiFetch(endpoint: string, options?: RequestInit) {
   const response = await fetch(`${API_URL}${endpoint}`, {

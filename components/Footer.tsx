@@ -2,57 +2,38 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 mt-20">
+    <footer className="bg-[#0a0a0b] border-t border-white/10 text-gray-400 mt-20">
       <div className="max-w-7xl mx-auto px-6 py-14 grid gap-10 md:grid-cols-3">
         {/* Marca */}
-
         <div>
-          <h3 className="text-xl font-bold text-white mb-3">NextShop</h3>
-
-          <p className="text-sm text-gray-400">
-            Una tienda moderna creada con Next.js y Radix UI.
+          <h3 className="text-2xl font-black text-white mb-4 tracking-tighter">
+            NEXT<span className="text-blue-600">FLIX</span>
+          </h3>
+          <p className="text-sm leading-relaxed">
+            Tu plataforma definitiva para descubrir, gestionar y explorar las mejores series del mundo cinematográfico. Creado con tecnología de vanguardia.
           </p>
         </div>
 
         {/* Links */}
-
         <div>
-          <h4 className="font-semibold text-white mb-4">Navegación</h4>
-
-          <ul className="space-y-2 text-sm">
-            <li>
-              <Link href="/" className="hover:text-white">
-                Inicio
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/products" className="hover:text-white">
-                Productos
-              </Link>
-            </li>
-
-            <li>
-              <Link href="/about" className="hover:text-white">
-                Acerca de
-              </Link>
-            </li>
+          <h4 className="font-bold text-white mb-5 uppercase text-xs tracking-widest">Navegación</h4>
+          <ul className="space-y-3 text-sm">
+            <li><Link href="/" className="hover:text-blue-500 transition-colors">Inicio</Link></li>
+            <li><Link href="/series" className="hover:text-blue-500 transition-colors">Series</Link></li>
+            <li><Link href="/about" className="hover:text-blue-500 transition-colors">Acerca de</Link></li>
           </ul>
         </div>
 
         {/* Contacto */}
-
         <div>
-          <h4 className="font-semibold text-white mb-4">Contacto</h4>
-
-          <p className="text-sm text-gray-400">soporte@nextshop.com</p>
-
-          <p className="text-sm text-gray-400">La Paz, Bolivia</p>
+          <h4 className="font-bold text-white mb-5 uppercase text-xs tracking-widest">Contacto</h4>
+          <p className="text-sm">fernando.fa671@gmail.com</p>
+          <p className="text-sm mt-1 text-gray-500 italic">Desarrollado en Next.js por Luis Fernando Angulo Heredia</p>
         </div>
       </div>
 
-      <div className="border-t border-gray-800 text-center text-sm py-6 text-gray-500">
-        © {new Date().getFullYear()} NextShop — Todos los derechos reservados
+      <div className="border-t border-white/5 text-center text-[10px] py-8 text-gray-600 uppercase tracking-widest">
+        © {new Date().getFullYear()} NextFLIX — Todos los derechos reservados
       </div>
     </footer>
   );

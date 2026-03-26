@@ -1,6 +1,5 @@
 "use client";
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import Image from "next/image";
 
 type DialogProps = {
   trigger: React.ReactNode;
@@ -43,26 +42,24 @@ export default function Dialog({
       <DialogPrimitive.Portal>
         <DialogPrimitive.Overlay className="fixed inset-0 z-60 bg-black/40 backdrop-blur-sm" />
         <DialogPrimitive.Content
-          className={`fixed z-61 bg-white p-6 rounded-xl shadow-xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${sizes[size]}`}
+          className={`fixed z-61 bg-[#161618] p-8 rounded-2xl shadow-2xl border border-white/10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${sizes[size]}`}
         >
           {image && (
             <div className="mb-4 overflow-hidden rounded">
-              <Image
+              <img
                 src={image}
                 alt={title || "Dialog Image"}
                 className="h-48 w-full object-cover"
-                height={300}
-                width={500}
               />
             </div>
           )}
           {title && (
-            <DialogPrimitive.Title className="text-xl font-bold mb-2">
+            <DialogPrimitive.Title className="text-2xl font-black mb-2 text-white tracking-tight">
               {title}
             </DialogPrimitive.Title>
           )}
           {description && (
-            <DialogPrimitive.Description className="text-gray-600 mb-4">
+            <DialogPrimitive.Description className="text-gray-400 mb-6 text-sm leading-relaxed">
               {description}
             </DialogPrimitive.Description>
           )}

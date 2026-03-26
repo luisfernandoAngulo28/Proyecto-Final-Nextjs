@@ -1,0 +1,35 @@
+"use client";
+
+import { useState } from "react";
+import {
+  PostSerieRequest,
+  PostSerieResponse,
+} from "../interfaces/post-serie.interface";
+import { postSerie } from "../services/get-series.service";
+
+export function usePostSerie() {
+  const [loading, setloading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const createSerie = async (
+    data: PostSerieRequest,
+  ): Promise<PostSerieResponse> => {
+    setloading(true);
+    setError(null);
+
+    try {
+      const createdSerie = await postSerie(data);
+      return createdSerie;
+    } catch (err) {
+      setError("No se pudo crear la serie");
+      throw err;
+    } finally {
+      setloading(false);
+    }
+  };
+  return {
+    createSerie,
+    loading,
+    error,
+  };
+}

@@ -1,48 +1,53 @@
 "use client";
 
 import Dialog from "@/components/Dialog";
-import { useDeleteProduct } from "../hooks/useDeleteProduct";
+import { useDeleteSerie } from "@/hooks/useDeleteSerie";
 import { useState } from "react";
 
 type Props = {
   trigger: React.ReactNode;
-  productId: number;
+  serieId: number;
   onDelete: (id: number) => void;
-  onSuccess?: () => void; //para refrescar la lista de productos después de eliminar
+  onSuccess?: () => void; //para refrescar la lista de series después de eliminar
 };
 
-export default function DeleteProductModal({
+export default function DeleteSerieModal({
   trigger,
-  productId,
+  serieId,
   onDelete,
   onSuccess,
 }: Props) {
-  const { removeProduct, loading, error } = useDeleteProduct();
+  const { removeSerie, loading, error } = useDeleteSerie();
   const [isOpen, setIsOpen] = useState(false); // Control local del estado del modal
 
   const handleDelete = async () => {
     try {
-      await removeProduct(productId);
+      await removeSerie(serieId);
       setIsOpen(false); // Cerramos el modal después de eliminar
-      onDelete(productId);
-      onSuccess?.(); // Llamamos a onSuccess para refrescar la lista de productos
-      alert("Producto eliminado exitosamente");
+      onDelete(serieId);
+      onSuccess?.(); // Llamamos a onSuccess para refrescar la lista de series
+      alert("Serie eliminada exitosamente");
     } catch {
-      alert("Error al eliminar el producto");
+      alert("Error al eliminar la serie");
     }
   };
 
   return (
     <Dialog
       trigger={trigger}
-      title="Eliminar producto"
-      description="¿Estás seguro de que deseas eliminar este producto?"
+      title="Eliminar serie"
+      description="¿Estás seguro de que deseas eliminar esta serie?"
       size="sm"
       open={isOpen} // Controlamos la apertura del modal con el estado local
       onOpenChange={setIsOpen} // Actualizamos el estado local cuando el modal se abra o cierre
       footer={
         <>
-          <button className="px-4 py-2 border rounded">Cancelar</button>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="px-4 py-2 border rounded"
+          >
+            Cancelar
+          </button>
           <button
             onClick={handleDelete}
             disabled={loading}
