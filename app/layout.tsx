@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import NavBar from "../components/Navbar";
 import Footer from "@/components/Footer";
@@ -30,7 +31,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
-        <NavBar />
+        <Suspense fallback={null}>
+          <NavBar />
+        </Suspense>
         {children}
         <Footer />
       </body>
